@@ -1,0 +1,25 @@
+[package]
+name = "minecraft-portable-launcher"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = true
+opt-level = 'z'
+strip = true
+panic = "abort"
+codegen-units = 1
+
+[dependencies]
+reqwest = "0.11.22"
+tokio = "1.32.0"
+winres = "0.1.12"
+
+[build-dependencies]
+winres = "0.1.12"
+
+[package.metadata.winres]
+FileDescription = "Minecraft Portable Launcher"
+LegalCopyright = "Copyright © 2023"
+ProductName = "Minecraft Portable Launcher"
+ProductVersion = "1.0"
