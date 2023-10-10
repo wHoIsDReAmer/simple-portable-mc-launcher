@@ -11,7 +11,7 @@ impl Minecraft {
     pub fn new() -> Self {
         let path = std::path::Path::new(MC_FILE_PATH);
         if !path.exists() {
-            std::fs::create_dir_all(path.parent().unwrap()).expect("Cannot create dir");
+            tokio::fs::create_dir_all(path.parent().unwrap()).expect("Cannot create dir");
         }
 
         Minecraft {}

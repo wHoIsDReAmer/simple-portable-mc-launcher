@@ -8,6 +8,6 @@ pub async fn download_file(url: String, path: String)
     let res = client.get(url)
         .send().await?;
 
-    std::fs::write(path, res.bytes().await?)?;
+    tokio::fs::write(path, res.bytes().await?).await?;
     Ok(())
 }
