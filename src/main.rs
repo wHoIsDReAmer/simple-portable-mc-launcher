@@ -12,7 +12,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build()?;
 
     rt.block_on(async {
-        let mc = Minecraft::new();
+        let mc = Minecraft::new().await;
 
         let res = mc.download_not_exists().await;
         match res {

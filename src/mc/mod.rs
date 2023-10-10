@@ -8,10 +8,10 @@ const MC_FILE_PATH: &str = "./Minecraft/Launcher/Minecraft.exe";
 pub struct Minecraft {}
 
 impl Minecraft {
-    pub fn new() -> Self {
+    pub async fn new() -> Self {
         let path = std::path::Path::new(MC_FILE_PATH);
         if !path.exists() {
-            tokio::fs::create_dir_all(path.parent().unwrap()).expect("Cannot create dir");
+            tokio::fs::create_dir_all(path.parent().unwrap()).await.expect("Cannot create dir");
         }
 
         Minecraft {}
